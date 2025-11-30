@@ -241,6 +241,37 @@
             letter-spacing: 0.02em;
         }
 }
+/*Mobile-menu*/
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mobile-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+@media screen and (min-width: 768px) {
+    .mobile-menu {
+        display: none;
+    }
+}
+
+
+
+
+
 
 /*Main-3*/
 /*Mobile*/
@@ -322,8 +353,8 @@
 /*Desktop*/
 @media screen and (min-width: 1158px) {
     .main-section {
-        padding: 188px 0 188px;
         max-width: 1440px;
+        padding: 188px 0 188px;
         margin: auto;
     }
     .main-container {
@@ -340,7 +371,7 @@
 /*Mobile*/
 .advantages-section {
     color: #434455;
-    padding: 96px 16px;
+    padding: 96px 0px;
 }
 .advantages-container {
     display: flex;
@@ -361,7 +392,6 @@
     gap: 72px;
 }
 .advantages-item {
-    flex-basis: calc((100% - 72px) / 4);
 }
 .advantages-item-icon {
     justify-content: center;
@@ -473,10 +503,11 @@
     gap: 24px;
 }
 .advantages-item {
-    flex-basis: calc((100% - 72px) / 4);
+    width: calc((100% - 72px) / 4);
 }
 .advantages-item-icon {
     justify-content: center;
+    flex-direction: column;
     background-repeat: no-repeat;
     background-position: center;
     background: #F4F4FD;
@@ -488,6 +519,7 @@
     margin-bottom: 8px;
     display: flex;
     align-items: center;
+    gap: 8px;
 }
 .advantages-social-icons {
     width: 64;
@@ -519,7 +551,7 @@
     background-color: #F4F4FD;
     line-height: 1.11;
     font-size: 36px;
-    padding: 96px 16px;
+    padding: 96px 0px;
 }
 .team-container {
     align-items: center;
@@ -536,7 +568,6 @@
     text-transform: capitalize;
     color: #2e2f42;
     align-items: center;
-    margin-top: 96px;
     margin-bottom: 72px;
 }
 .team-list {
@@ -694,14 +725,13 @@ team-section {
     color: #2e2f42;
     text-transform: capitalize;
     line-height: 1.11;
-    padding: 96px 16px;
+    padding: 96px 0px;
 }
 .portfolio-container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 48px;
 }
 .portfolio-title-middle {
     font-weight: 700;
@@ -763,6 +793,7 @@ team-section {
         align-items: flex-start;
         justify-content: center;
         flex-direction: column;
+        padding: 32px 16px;
 }
 .portfolio-title {
     text-transform: capitalize;
@@ -772,7 +803,6 @@ team-section {
     line-height: 1.2;
     letter-spacing: 0.02em;
     color: var(--navy-blue);
-    padding-top: 32px;
     margin-bottom: 8px;
 }
 .portfolio-text {
@@ -782,7 +812,6 @@ team-section {
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
-    margin-bottom: 32px;
 }
 /*Tablet*/
 @media screen and (min-width: 768px) {
@@ -987,7 +1016,7 @@ team-section {
 .footer-page {
     background-color: #2e2f42;
     line-height: 1.17;
-    padding: 96px 16px;
+    padding: 96px 0;
     align-items: baseline;
 }
 .footer-container {
@@ -1108,7 +1137,6 @@ team-section {
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #ffffff;
-    
 }
 .footer-form {
     display: flex;
@@ -1120,7 +1148,6 @@ team-section {
 }
 .footer-label {
     display: flex;
-    
 }
 .footer-input {
     width: 288px;
@@ -1155,6 +1182,7 @@ team-section {
 }
 .footer-icon-point {
     margin-left: 16px;
+    fill: #ffffff;
 }
 /*Tablet*/
 @media screen and (min-width: 768px) {
@@ -1167,21 +1195,19 @@ team-section {
     .footer-container {
         display: flex;
         align-items: baseline;
-        max-width: 584px;
+        max-width: 768px;
         justify-content: flex-start;
         text-align: left;
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 72px;
-        column-gap: 64px;
     }
     .footer-container-logo {
         display: flex;
         align-items: flex-start;
-        margin-bottom: 16px;
         flex-direction: column;
         flex-wrap: wrap;
         text-align: center;
+        margin-right: 24px;
     }
     .footer-link-logo {
         font-family: "Raleway", sans-serif;
@@ -1193,7 +1219,6 @@ team-section {
         text-transform: uppercase;
         text-decoration: none;
         margin-bottom: 16px;
-        
     }
     .footer-logo {
         font-family: "Raleway", sans-serif;
@@ -1217,7 +1242,6 @@ team-section {
         margin: 0;
     }
     .footer-social-media {
-        margin-right: 120px;
         display: flex;
         align-items: baseline;
         align-items: flex-start;
@@ -1269,14 +1293,12 @@ team-section {
         height: 24;
     }
     .footer-button {
-    list-style: none;
+        list-style: none;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         flex-wrap: wrap;
-        gap: 16px;
-        padding: 16px 0;
     }
     .footer-subscribe {
         margin-bottom: 16px;
@@ -1294,8 +1316,11 @@ team-section {
         flex-direction: row;
         gap: 24px;
     }
+        .footer-label {
+            display: flex;
+        }
     .footer-input {
-        width: 264px;
+        width: 288px;
         height: 40px;
         border: 1px solid #ffffff;
         background-color: transparent;
@@ -1307,7 +1332,7 @@ team-section {
         border-radius: 4px;
         color: #ffffff;
         flex-grow: 1;
-            width: 264px;
+        width: 264px;
     }
     .button-subscribe {
         min-width: 165px;
@@ -1342,6 +1367,7 @@ team-section {
     }
     .footer-container {
         flex-direction: row;
+        flex-wrap: nowrap;
         display: flex;
         align-items: baseline;
     }
@@ -1351,7 +1377,6 @@ team-section {
         align-items: baseline;
         align-items: flex-start;
         flex-direction: column;
-        margin-right: 120px;
     }
     .footer-link-logo {
         font-family: "Raleway", sans-serif;
@@ -1389,12 +1414,11 @@ team-section {
         margin: 0;
     }
     .footer-social-media {
-        margin-right: 120px;
         display: flex;
         align-items: baseline;
         align-items: flex-start;
         flex-direction: column;
-        margin-right: 120px;
+        margin-right: 80px;
     }
     .footer-text-media {
         color: #FFFFFF;
@@ -1416,7 +1440,6 @@ team-section {
     .footer-item-social {
         width: 40px;
         height: 40px;
-
     }
     .footer-icons {
         background-color: #4d5ae5;
@@ -1439,8 +1462,14 @@ team-section {
         width: 24;
         height: 24;
     }
-    .footer-button {}
-
+    .footer-button {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+    } 
     .footer-subscribe {
         margin-bottom: 16px;
         font-weight: 500;
@@ -1453,8 +1482,11 @@ team-section {
         display: flex;
         gap: 24px;
     }
+        .footer-label {
+            display: flex;
+        }
     .footer-input {
-        width: 264px;
+        width: 288px;
         height: 40px;
         border: 1px solid #ffffff;
         background-color: transparent;
